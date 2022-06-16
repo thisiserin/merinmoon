@@ -1,323 +1,728 @@
-{%- style -%}
-  .footer {
-    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+{% style %}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 16, sass/_base.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 37, sass/_base.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 41, sass/_base.scss */
+body {
+  font-family: sans-serif;
+  line-height: 1;
+}
+
+/* line 45, sass/_base.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 48, sass/_base.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 51, sass/_base.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 56, sass/_base.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* end Meyer CSS reset */
+/* line 63, sass/_base.scss */
+* {
+  box-sizing: border-box;
+  transition-property: background, border, color, height, opacity, padding, top, right, bottom, left, width;
+  transition-duration: .3s;
+  transition-timing-function: linear;
+}
+
+/* line 69, sass/_base.scss */
+html {
+  font-size: 10px;
+  margin: 0;
+}
+
+/* line 73, sass/_base.scss */
+body {
+  background: #fff;
+  color: #000;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* line 83, sass/_base.scss */
+.nobreak {
+  white-space: nowrap;
+}
+
+/* line 86, sass/_base.scss */
+.hidden {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: block;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* line 96, sass/_base.scss */
+.hidden:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+/* line 101, sass/_base.scss */
+h1, h2, h3, h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+/* line 105, sass/_base.scss */
+h1 {
+  font-size: 3rem;
+  line-height: 3.8rem;
+}
+
+/* line 109, sass/_base.scss */
+a {
+  color: #AFBC21;
+  text-decoration: none;
+}
+
+/* line 113, sass/_base.scss */
+p {
+  margin: 1rem 0;
+}
+
+/* line 3, sass/style.scss */
+header .psb-logo {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  /* line 3, sass/style.scss */
+  header .psb-logo {
+    display: block;
+    margin: 1rem 5rem;
   }
+}
 
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+/* line 10, sass/style.scss */
+.description {
+  display: block;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+/* line 15, sass/style.scss */
+.description .description-container {
+  margin: 0 5vh;
+  max-width: 400px;
+  padding-top: 10vw;
+}
+@media only screen and (min-width: 550px) and (max-width: 1024px) {
+  /* line 15, sass/style.scss */
+  .description .description-container {
+    margin: 0 10vw;
   }
-
-  @media screen and (min-width: 750px) {
-    .footer {
-      margin-top: {{ section.settings.margin_top }}px;
-    }
-
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1919px) {
+  /* line 15, sass/style.scss */
+  .description .description-container {
+    margin: 0 15vw;
   }
-{%- endstyle -%}
+}
+@media only screen and (min-width: 1920px) {
+  /* line 15, sass/style.scss */
+  .description .description-container {
+    margin: 0 15vw;
+    max-width: 500px;
+  }
+}
+@media only screen and (min-height: 375px) and (max-height: 549px) {
+  /* line 15, sass/style.scss */
+  .description {
+	min-height: 450px;
+  }
+  .description .description-container {
+	min-height: 450px;
+    padding-top: 20vh;
+  }
+}
+@media only screen and (min-height: 900px) {
+  /* line 15, sass/style.scss */
+  .description .description-container {
+    padding-top: 40vh;
+  }
+}
 
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
-    <div class="footer__content-top page-width">
-      {%- if section.blocks.size > 0 -%}
-        {%- liquid
-          if section.blocks.size == 9
-            assign footer_grid_class = 'grid--3-col-tablet'
-          elsif section.blocks.size > 6
-            assign footer_grid_class = 'grid--4-col-desktop'
-          elsif section.blocks.size > 4
-            assign footer_grid_class = 'grid--3-col-tablet'
-          endif
-        -%}
-        <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
-          {%- for block in section.blocks -%}
-            <div class="footer-block grid__item{% if block.type == 'link_list' and block.settings.heading != blank %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
-              {%- if block.settings.heading != blank -%}
-                <h2 class="footer-block__heading">{{- block.settings.heading | escape -}}</h2>
-              {%- endif -%}
+/* line 41, sass/style.scss */
+.description {
+  color: #fff;
+}
 
-              {%- case block.type -%}
-                {%- when 'text' -%}
-                  <div class="footer-block__details-content rte">
-                    {{ block.settings.subtext }}
-                  </div>
-                {%- when 'link_list' -%}
-                  {%- if block.settings.menu != blank and block.settings.heading != blank -%}
-                    <ul class="footer-block__details-content list-unstyled">
-                      {%- for link in block.settings.menu.links -%}
-                        <li>
-                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            {{ link.title }}
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                {%- when 'image' -%}
-                  <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                    {%- if block.settings.image != blank -%}
-                      {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                      <img
-                        srcset= "{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                        src="{{ block.settings.image | image_url: width: 400 }}"
-                        alt="{{ block.settings.image.alt | escape }}"
-                        loading="lazy"
-                        width="{{ block.settings.image.width }}"
-                        height="{{ block.settings.image.height }}"
-                        style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                      >
-                    {%- else -%}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                    {%- endif -%}
-                  </div>
-                {%- endcase -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
+@media only screen and (min-height: 550px) and (max-height: 899px) {
+	.description-behind .description-container {
 
-      <div class="footer-block--newsletter">
-        {%- if section.settings.newsletter_enable -%}
-          <div class="footer-block__newsletter">
-            {%- if section.settings.newsletter_heading != blank -%}
-              <h2 class="footer-block__heading">{{ section.settings.newsletter_heading | escape }}</h2>
-            {%- endif -%}
-            {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <div class="newsletter-form__field-wrapper">
-                <div class="field">
-                  <input
-                    id="NewsletterForm--{{ section.id }}"
-                    type="email"
-                    name="contact[email]"
-                    class="field__input"
-                    value="{{ form.email }}"
-                    aria-required="true"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    autocomplete="email"
-                    {% if form.errors %}
-                      autofocus
-                      aria-invalid="true"
-                      aria-describedby="ContactFooter-error"
-                    {% elsif form.posted_successfully? %}
-                      aria-describedby="ContactFooter-success"
-                    {% endif %}
-                    placeholder="{{ 'newsletter.label' | t }}"
-                    required
-                  >
-                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                    {{ 'newsletter.label' | t }}
-                  </label>
-                  <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
-                    {% render 'icon-arrow' %}
-                  </button>
-                </div>
-                {%- if form.errors -%}
-                  <small class="newsletter-form__message form__message" id="ContactFooter-error">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
-                {%- endif -%}
-              </div>
-              {%- if form.posted_successfully? -%}
-                <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
-              {%- endif -%}
-            {%- endform -%}
-          </div>
-        {%- endif -%}
+	}
+}
 
-        {%- if section.settings.show_social -%}
-          <ul class="footer__list-social list-unstyled list-social" role="list">
-            {%- if settings.social_twitter_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_twitter_link }}" class="link list-social__link" >
-                  {%- render 'icon-twitter' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_facebook_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_facebook_link }}" class="link list-social__link" >
-                  {%- render 'icon-facebook' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_pinterest_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_pinterest_link }}" class="link list-social__link" >
-                  {%- render 'icon-pinterest' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_instagram_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_instagram_link }}" class="link list-social__link" >
-                  {%- render 'icon-instagram' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_tiktok_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_tiktok_link }}" class="link list-social__link" >
-                  {%- render 'icon-tiktok' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_tumblr_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_tumblr_link }}" class="link list-social__link" >
-                  {%- render 'icon-tumblr' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_snapchat_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_snapchat_link }}" class="link list-social__link" >
-                  {%- render 'icon-snapchat' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_youtube_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_youtube_link }}" class="link list-social__link" >
-                  {%- render 'icon-youtube' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_vimeo_link != blank -%}
-              <li class="list-social__item">
-                <a href="{{ settings.social_vimeo_link }}" class="link list-social__link" >
-                  {%- render 'icon-vimeo' -%}
-                  <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
-        {%- endif -%}
-      </div>
-    </div>
-  {%- endif -%}
+/* line 44, sass/style.scss */
+.description-intro {
+  background-color: #625545;
+  background-color: #625545;
+  background-image: url("https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/BG_IntrotoRoomFeel_80pc-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 
-  <div class="footer__content-bottom">
-    <div class="footer__content-bottom-wrapper page-width">
-      <div class="footer__column footer__localization isolate">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <noscript>
-            {%- form 'localization', id: 'FooterCountryFormNoScript', class: 'localization-form' -%}
-              <div class="localization-form__select">
-                <h2 class="visually-hidden" id="FooterCountryLabelNoScript">{{ 'localization.country_label' | t }}</h2>
-                <select class="localization-selector link" name="country_code" aria-labelledby="FooterCountryLabelNoScript">
-                  {%- for country in localization.available_countries -%}
-                    <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-                      {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
-            {%- endform -%}
-          </noscript>
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-              <div class="no-js-hidden">
-                <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                <div class="disclosure">
-                  <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterCountryList" aria-describedby="FooterCountryLabel">
-                    {{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
-                    {% render 'icon-caret' %}
-                  </button>
-                  <div class="disclosure__list-wrapper" hidden>
-                    <ul id="FooterCountryList" role="list" class="disclosure__list list-unstyled">
-                      {%- for country in localization.available_countries -%}
-                        <li class="disclosure__item" tabindex="-1">
-                          <a class="link link--text disclosure__link caption-large{% if country.iso_code == localization.country.iso_code %} disclosure__link--active{% endif %} focus-inset" href="#"{% if country.iso_code == localization.country.iso_code %} aria-current="true"{% endif %} data-value="{{ country.iso_code }}">
-                            {{ country.name }} <span class="localization-form__currency">({{ country.currency.iso_code }} {{ country.currency.symbol }})</span>
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
-                </div>
-                <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
+/* line 48, sass/style.scss */
+.description-behind {
+  background-color: #575757;
+  background-color: #575757;
+  background-image: url("https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/BG_RoomFeelStory_80pc-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+@media only screen and (min-width: 768px) {
+	.description-behind {
+		height: calc(100vh - 126px);
+	}
+}
 
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <noscript>
-            {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
-              <div class="localization-form__select">
-                <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">{{ 'localization.language_label' | t }}</h2>
-                <select class="localization-selector link" name="locale_code" aria-labelledby="FooterLanguageLabelNoScript">
-                  {%- for language in localization.available_languages -%}
-                    <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
-                      {{ language.endonym_name | capitalize }}
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
-            {%- endform -%}
-          </noscript>
+/* line 52, sass/style.scss */
+.description-life {
+  background-color: #625545;
+  background-color: #625545;
+  background-image: url("https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/BG_IntrotoRoomFeel_80pc-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 
-          <localization-form>
-            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-              <div class="no-js-hidden">
-                <h2 class="caption-large text-body" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                <div class="disclosure">
-                  <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel">
-                    {{ localization.language.endonym_name | capitalize }}
-                    {% render 'icon-caret' %}
-                  </button>
-                  <div class="disclosure__list-wrapper" hidden>
-                    <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled">
-                      {%- for language in localization.available_languages -%}
-                        <li class="disclosure__item" tabindex="-1">
-                          <a class="link link--text disclosure__link caption-large{% if language.iso_code == localization.language.iso_code %} disclosure__link--active{% endif %} focus-inset" href="#" hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}">
-                            {{ language.endonym_name | capitalize }}
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
-                </div>
-                <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      <div class="footer__column footer__column--info">
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
-        <div class="footer__copyright caption">
-          <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-          <small class="copyright__content">{{ powered_by_link }}</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+/* line 56, sass/style.scss */
+.description-perfect {
+  background-color: #55524C;
+  background-color: #55524C;
+  background-image: url("https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/BG_M4U2Story_80pc-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* line 60, sass/style.scss */
+.description-comfort {
+  background-color: #5A4F19;
+  background-color: #5A4F19;
+  background-image: url("https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/BG_M4U1Story_80pc-scaled.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 600px) {
+  /* line 64, sass/style.scss */
+  .description-right .description-container {
+    float: right;
+  }
+}
+
+/* line 71, sass/style.scss */
+.next-screen {
+  bottom: 2rem;
+  clear: both;
+  position: absolute;
+  width: 100%;
+}
+/* line 76, sass/style.scss */
+.next-screen .next-screen-link, .next-screen .to-top-link {
+  color: #AFBC21;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+@media only screen and (min-width: 500px) and (max-width: 699px) {
+  /* line 76, sass/style.scss */
+  .next-screen .next-screen-link, .next-screen .to-top-link {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 700px) {
+  /* line 76, sass/style.scss */
+  .next-screen .next-screen-link, .next-screen .to-top-link {
+    width: 25%;
+  }
+}
+/* line 88, sass/style.scss */
+.next-screen .next-screen-link h2, .next-screen .to-top-link h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+/* line 93, sass/style.scss */
+.next-screen .next-screen-link a, .next-screen .to-top-link a {
+  background: none;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+/* line 101, sass/style.scss */
+.next-screen .to-top-link {
+  margin-top: 0rem;
+}
+/* line 103, sass/style.scss */
+.next-screen .to-top-link .to-top-arrow {
+  -moz-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+/* line 110, sass/style.scss */
+.next-screen .next-screen-arrow,
+.next-screen .to-top-arrow {
+  width: 35px;
+}
+
+@media only screen and (min-width: 1090px) {
+
+}
+
+/* line 116, sass/style.scss */
+.product {
+  background-color: #fff;
+  color: #000;
+  display: block;
+  padding-top: 2rem;
+  width: 100%;
+}
+.product-m4u2,
+.product-m4u1 {
+	background-color: #F6F6F6;
+}
+
+/* line 122, sass/style.scss */
+.product img.product-image-m4u4 {
+  padding: 2rem 5rem 0 0;
+  width: 100%;
+}
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+  /* line 122, sass/style.scss */
+  .product img.product-image-m4u4 {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 122, sass/style.scss */
+  .product img.product-image-m4u4 {
+    margin: 5rem 0 0 0;
+    padding: 0;
+    width: 40%;
+  }
+}
+/* line 134, sass/style.scss */
+.product img.product-image-m4u2,
+.product img.product-image-m4u1 {
+  padding: 2rem 8rem 0 8rem;
+  width: 100%;
+}
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+  /* line 134, sass/style.scss */
+  .product img.product-image-m4u2,
+  .product img.product-image-m4u1 {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 134, sass/style.scss */
+  .product img.product-image-m4u2,
+  .product img.product-image-m4u1 {
+    margin: 5rem 10% 0 10%;
+    padding: 0;
+    width: 30%;
+  }
+}
+/* line 147, sass/style.scss */
+.product .product-container {
+  padding: 5%;
+}
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+  /* line 147, sass/style.scss */
+  .product .product-container {
+    float: right;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1919px) {
+  /* line 147, sass/style.scss */
+  .product .product-container {
+    float: right;
+    padding-right: 10%;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  /* line 147, sass/style.scss */
+  .product .product-container {
+    float: right;
+    padding-right: 20%;
+    width: 50%;
+  }
+}
+/* line 164, sass/style.scss */
+.product .next-screen {
+  padding-bottom: 2rem;
+  position: static;
+}
+
+/* line 169, sass/style.scss */
+.btn-green {
+  background-color: #AFBC21;
+  border: 1px solid #AFBC21;
+  color: #000;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-right: 2.5rem;
+  padding: 8px 20px;
+  text-transform: uppercase;
+}
+/* line 178, sass/style.scss */
+.btn-green:hover, .btn-green:active, .btn-green:focus {
+  background-color: #fff;
+  color: #AFBC21;
+}
+
+/* line 183, sass/style.scss */
+.learn-more-link {
+  color: #000;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: -1rem;
+}
+
+/* line 189, sass/style.scss */
+.learn-more-arrow {
+  color: #AFBC21;
+  font-size: 4rem;
+  font-weight: 300;
+  left: 6px;
+  position: relative;
+  top: 9px;
+}
+
+footer {
+	background: white;
+	color: black;
+	font-size: 1.2rem;
+	padding: 2.5rem 5rem;
+}
+footer section {
+	margin-bottom: 2.5rem;
+}
+footer h1 {
+	font-size: 1.6rem;
+	text-transform: uppercase;
+}
+footer a {
+	color: black;
+}
+footer a:hover,
+footer a:active,
+footer a:focus {
+	color: red;
+	text-decoration: underline;
+}
+footer b {
+	font-weight: 700;
+}
+.footer-socials a:first-of-type,
+.footer-links a:first-of-type {
+	margin-right: 1rem;
+}
+@media only screen and (min-width: 660px) {
+
+	footer .psb-logo {
+		margin-top: 2rem;
+	}
+	.footer-logo, .footer-location {
+		clear: both;
+		float: left;
+	}
+	.footer-socials, .footer-links {
+		float: right;
+		text-align: right;
+	}
+	.footer-copyright {
+		border-top: 1px solid #DDD;
+		clear: both;
+		padding-top: 2rem;
+		margin-top: 1rem;
+	}
+	.footer-socials img, .footer-links img {
+		height: 30px;
+	}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+	.footer-logo, .footer-socials, .footer-location, .footer-links {
+		clear: none;
+		display: inline-block;
+		float: none;
+		text-align: left;
+		vertical-align: top;
+	}
+	.footer-logo {
+		width: 25%;
+	}
+	.footer-socials {
+		text-align: center;
+		width: 31%;
+	}
+	.footer-location {
+		width: 27%;
+	}
+	.footer-location address {
+		margin-left: 10%;
+		text-align: left;
+	}
+	.footer-phone {
+		padding-top: 1rem;
+	}
+	.footer-links {
+		text-align: right;
+		width: 15%;
+	}
+
+	.footer-copyright {
+		text-align: center;
+	}
+
+}
+
+@media only screen and (min-width: 1260px) {
+
+	footer {
+		padding: 2.5rem 15rem;
+	}
+
+}
+{% endstyle %}
+
+<header class="header" id="top">
+	<a href="https://www.psbspeakers.com" title="Go to PSB Speakers home page"><img class="psb-logo" src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/PSB_RoomFeel_Lockup.png" alt="PSB Speakers" ></a>
+</header>
+
+<main>
+
+	<section id="behind" class="description description-right description-behind">
+		<div class="description-container">
+			<h1>Behind RoomFeel™ Technology</h1>
+			<p>For over 45 years Paul Barton, Founder and Chief Designer of PSB Speakers,
+			has used the renowned acoustic labs at Canada’s National Research Council (NRC)
+			for the development and advancement of loudspeaker technologies. Through
+			countless hours of research, and data compiled deep within the NRC’s anechoic
+			chambers, PSB was able to craft a true headphone innovation, RoomFeel&trade;.</p>
+		</div>
+		<div class="next-screen">
+			<a href="#life" title="" class="next-screen-link">
+				<h2>What is RoomFeel?</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="life" class="description description-left description-life">
+		<div class="description-container">
+			<h1>Bringing Sound to Life</h1>
+			<p>Created to deliver the warm, natural sound of a live performance, RoomFeel technology
+				adds realism back to all your favourite recordings without altering the original audio signal.
+				Carefully developed using what is known as ‘Room Gain’ &ndash; the energy and warmth that a
+				room adds when listening to high-quality loudspeakers &ndash; RoomFeel places the musicians
+				and music around you and allows you to feel every detail of a recording inside
+				your headphones.</p>
+		</div>
+		<div class="next-screen">
+			<a href="#m4u8" title="" class="next-screen-link">
+				<h2>Learn about the M4U 8</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="m4u8" class="product product-m4u8">
+		<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/PSB_M4U8_Headphones_blk_3-4_80pc.jpg" alt="M4U 8 Headphones" class="product-image product-image-m4u1">
+		<div class="product-container">
+			<h1>M4U 8 - Premium Wireless Sound + ANC </h1>
+			<p>The new M4U 8 Wireless Active Noise Cancelling HD Headphones feature RoomFeel and other advanced adaptive noise cancelling technologies so you can focus on the details of your music, movies and videos – not the noise around you. Easily connect the headphones with Bluetooth® or use NFC pairing by simply touching the smart device to the headphones. On-ear controls let you seamlessly control your favourite music or make phone calls using the high-clarity mic.</p>
+				<a class="btn-green" href="/product/m4u-8-headphones/">Buy Now!</a>
+			<a class="learn-more-link" href="/product/m4u-8-headphones/">Learn More <span class="learn-more-arrow">></span></a>
+			<br><br>
+		</div>
+		<div class="next-screen next-screen-final">
+			<a href="#tw1" title="" class="next-screen-link">
+				<h2>Wire-free Sound for Active Lifestyles</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to the top" class="to-top-arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="tw1" class="product product-m4u1">
+		<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/PSB_TW1_Headphones.png" alt="TW1 Headphones" class="product-image product-image-m4u2">
+		<div class="product-container">
+			<h1>TW1 - Wire-free Sound for Active Lifestyles  </h1>
+			<p>The M4U TW1 True Wireless Earphones let you move freely and enjoy powerful sound with deep bass and ultra-crisp details. Connect to any device quickly and easily with Bluetooth® and use the high-clarity mic and one-touch sensitive button to control volume, skip tracks and answer calls. Lightweight and water-resistant, the M4U TW1s deliver up to 5 hours of listening while toughing out weather or sweating it out during a workout. </p>
+			<a class="btn-green" href="/product/m4u-tw1-earphones/">Buy Now!</a>
+			<a class="learn-more-link" href="/product/m4u-tw1-earphones/">Learn More <span class="learn-more-arrow">></span></a>
+			<br><br>
+		</div>
+	<div class="next-screen">
+		<a href="#perfect" title="" class="next-screen-link">
+			<h2>Be immersed in music</h2>
+			<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+		</a>
+	</div>
+	</section>
+
+	<section id="perfect" class="description description-left description-perfect">
+		<div class="description-container">
+			<h1>Be Immersed. Wherever You Go.</h1>
+			<p>RoomFeel is made to go where you and your music go, bringing you the most accurate sound everywhere you listen. Deeply integrated with the unique driver design of PSB M4U headphones, RoomFeel delivers a truly immersive sonic signature that travels with you, offering unlimited comfort for all-day listening on the go or at home.  With PSB M4U headphones you’ll never be far from well-balanced, amazingly detailed sound.</p>
+		</div>
+		<div class="next-screen">
+			<a href="#m4u4" title="" class="next-screen-link">
+				<h2>Learn about the M4U 4</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="m4u4" class="product product-m4u4">
+		<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/PSB_M4U4_Headphones_WHT_1529.jpg" alt="M4U 4 Headphones" class="product-image product-image-m4u4">
+		<div class="product-container">
+			<h1>M4U 4 - Built for Everyday Listening.</h1>
+			<p>Designed for an active lifestyle, and specially engineered with RoomFeel technology and a hybrid dual-driver system, the PSB M4U 4s are precision tuned to deliver clear vocals and rich bass with ultimate comfort. The PSB M4U 4’s lightweight low-profile design, and around-the-ear cable with an inline remote/mic, lets you move freely and easily control your music with a secure fit.</p>
+			<a class="btn-green" href="/product/m4u-4-headphones/">Buy Now!</a>
+			<a class="learn-more-link" href="/product/m4u-4-headphones/">Learn More <span class="learn-more-arrow">></span></a>
+		</div>
+	<div class="next-screen">
+		<a href="#m4u2" title="" class="next-screen-link">
+			<h2>Pure Hi-Fi Sound. No Noise.</h2>
+			<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+		</a>
+	</div>
+	</section>
+
+	<section id="m4u2" class="product product-m4u2">
+		<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/PSB_M4U2_Headphones_WHT_Side_1147.jpg" alt="M4U 2 Headphones" class="product-image product-image-m4u2">
+		<div class="product-container">
+			<h1>M4U 2 - Pure Hi-Fi Sound. No Noise.</h1>
+			<p>Hear what you want to hear with the M4U 2 Active Noise Cancelling Headphones. Advanced noise-cancelling microphones automatically detect and eliminate ambient sounds, while PSB’s proprietary RoomFeel acoustic technology creates a more open soundstage and lets you feel the music around you. An inline remote with mic allows you to easily answer phone calls and control your music.</p>
+			<a class="btn-green" href="/product/m4u-2-headphones/">Buy Now!</a>
+			<a class="learn-more-link" href="/product/m4u-2-headphones/">Learn More <span class="learn-more-arrow">></span></a>
+		</div>
+		<div class="next-screen">
+			<a href="#comfort" title="" class="next-screen-link">
+				<h2>True Comfort and Portability</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="comfort" class="description description-left description-comfort">
+		<div class="description-container">
+			<h1>True Comfort and Portability</h1>
+			<p>Using carefully selected materials, PSB M4U headphones guarantee extra comfort for extended listening sessions and ready-to-go portability when you are ready to move. Their adaptive plush ear pads and ergonomic design conform to your ears and make you never want to take them off. Plus, with the convenience of interchangeable left and right input connections, it’s like M4U headphones were built for you and your music.</p>
+		</div>
+		<div class="next-screen">
+			<a href="#m4u1" title="" class="next-screen-link">
+				<h2>Learn about the M4U 1</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to next section" class="next-screen-arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="m4u1" class="product product-m4u1">
+		<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/PSB_M4U1_Headphones_Red_3-4_80pc.jpg" alt="M4U 1 Headphones" class="product-image product-image-m4u1">
+		<div class="product-container">
+			<h1>M4U 1 - Hear Every Note</h1>
+			<p>Get the most out of your music with the M4U 1 High-Performance Over-Ear Headphones. Infused with PSB’s RoomFeel technology for the most accurate sound reproduction, the M4U 1s provide the musical detail and clarity that audiophiles demand. Thanks to their soft ergo-fit ear pads and lightweight foldable design, the M4U 1s naturally isolate your music from outside noise while providing on-the-go comfort and portability.</p>
+			<a class="btn-green" href="/product/m4u-1-headphones/">Buy Now!</a>
+			<a class="learn-more-link" href="/product/m4u-1-headphones/">Learn More <span class="learn-more-arrow">></span></a>
+		</div>
+		<div class="next-screen next-screen-final">
+			<a href="#top" title="" class="to-top-link">
+				<h2>Return to the top</h2>
+				<img src="https://content-psbspeakers-com.s3.amazonaws.com/uploads/2022/03/nextarrow_green.png" alt="Arrow pointing to the top" class="to-top-arrow">
+			</a>
+		</div>
+	</section>
+
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+(function ($, root, undefined) {
+	$(function () {
+		// Slow scroll to anchors
+		$('a[href*="#"]:not([href="#"])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				if (target.length) {
+					$('html, body').animate({
+						scrollTop: target.offset().top
+					}, 800);
+					return false;
+				}
+			}
+		});
+	});
+})(jQuery, this);
+</script>
