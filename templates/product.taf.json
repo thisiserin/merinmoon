@@ -172,7 +172,6 @@
   },
   "order": [
     "main",
-    "image-with-text",
     "multicolumn",
     "product-recommendations"
   ]
