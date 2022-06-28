@@ -63,7 +63,7 @@
           "settings": {
             "heading": "Shipping & Returns",
             "icon": "truck",
-            "content": "<p>Custom information about shippiing for this product and this product only.<\/p>",
+            "content": "<p>{{ product.metafields.custom.shipping_returns | metafield_tag }}<\/p>",
             "page": ""
           }
         },
