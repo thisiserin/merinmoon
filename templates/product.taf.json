@@ -49,10 +49,6 @@
           "settings": {
           }
         },
-<<<<<<< HEAD
-        "sku": {
-          "type": "sku"
-=======
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
@@ -88,7 +84,6 @@
             "content": "",
             "page": ""
           }
->>>>>>> 04e6bc679eb9b0fd9a980570c565cc7c101cc2c7
         },
         "share": {
           "type": "share",
@@ -101,16 +96,20 @@
         "vendor",
         "title",
         "caption",
+        "price",
         "variant_picker",
         "quantity_selector",
-        "price",
         "buy_buttons",
         "description",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2",
+        "collapsible-row-3",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_size": "large",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
