@@ -50,10 +50,14 @@
           }
         },
         "sku": {
-          "type": "sku"
+          "type": "sku",
+          "settings": {
+          }
         },
         "categories": {
-          "type": "categories"
+          "type": "categories",
+          "settings": {
+          }
         },
         "share": {
           "type": "share",
