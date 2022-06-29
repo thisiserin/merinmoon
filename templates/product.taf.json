@@ -49,46 +49,8 @@
           "settings": {
           }
         },
-<<<<<<< HEAD
         "sku": {
           "type": "sku"
-=======
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "<p>{{ product.metafields.custom.shipping_returns | metafield_tag }}<\/p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
->>>>>>> 04e6bc679eb9b0fd9a980570c565cc7c101cc2c7
         },
         "share": {
           "type": "share",
@@ -106,6 +68,7 @@
         "price",
         "buy_buttons",
         "description",
+        "sku",
         "share"
       ],
       "settings": {
