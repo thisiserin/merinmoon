@@ -254,16 +254,15 @@
               </div>
             {%- endif -%}
           {%- when 'categories' -%}
-            <div class="categories"></div>
-            <!-- {%- if product.tags != blank -%} -->
-              <!-- <div class="product__categories rte">
+            {%- if product.tags != blank -%}
+              <div class="product__categories rte">
                 <ul class="product-tags">
                   {% for tag in product.tags %}
                     <li><a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a></li>
                   {% endfor %}
                 </ul>
-              </div> -->
-            <!-- {%- endif -%} -->
+              </div>
+            {%- endif -%}
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}
