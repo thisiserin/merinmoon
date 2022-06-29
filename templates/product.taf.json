@@ -49,6 +49,12 @@
           "settings": {
           }
         },
+        "sku": {
+          "type": "sku"
+        },
+        "categories": {
+          "type": "categories"
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -65,6 +71,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "sku",
+        "categories",
         "share"
       ],
       "settings": {

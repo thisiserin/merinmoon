@@ -246,6 +246,24 @@
                 {{ product.description }}
               </div>
             {%- endif -%}
+          {%- when 'sku' -%}
+            {% assign current_variant = product.selected_or_first_available_variant %}
+            {%- if current_variant.sku != blank -%}
+              <div class="product__sku rte">
+                {{ current_variant.sku }}
+              </div>
+            {%- endif -%}
+          {%- when 'categories' -%}
+            <div class="categories"></div>
+            <!-- {%- if product.tags != blank -%} -->
+              <!-- <div class="product__categories rte">
+                <ul class="product-tags">
+                  {% for tag in product.tags %}
+                    <li><a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div> -->
+            <!-- {%- endif -%} -->
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}
